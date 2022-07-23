@@ -13,12 +13,11 @@ const images = [
   },
 ];
 
-const makeImg = ({ url, alt }) => {
-  return `<li class='item'><img src='${url}' alt=${alt} width='320'/></li>`;
-};
+const gallery = document.querySelector('.gallery');
 
-const galeryRef = document.querySelector('.gallery');
-galeryRef.style;
-const imagesRef = images.map(image => makeImg(image)).join(' ');
-console.log(imagesRef);
-galeryRef.insertAdjacentHTML('afterbegin', imagesRef);
+const makeImg = ({ url, alt }) =>
+  `<li class='item'><img src='${url}' alt=${alt} width='320'/></li>`;
+
+const imagesMarkup = images.map(image => makeImg(image)).join('');
+
+gallery.insertAdjacentHTML('beforeend', imagesMarkup);
